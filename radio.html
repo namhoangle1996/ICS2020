@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<title>Radio Configuration</title>
+	<style>
+	*    {font-family: "Times New Roman", Times, serif;}
+	.container .tab {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+
+	}
+	.container .tab .sub-tab {
+		float: left;
+    position: relative;
+    border: none;
+    color: #FFFFFF;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    background-color: #303030;
+    color: #fcfcfc;
+    
+	        }  
+	.container .tab .sub-tab:after {
+		 content: "";
+		 background: #f1f1f1;
+		 display: block;
+		 position: absolute;
+		 padding-top: 300%;
+		 padding-left: 350%;
+		 margin-right: 300%;
+		 margin-bottom: 200%;
+		 margin-left: -20px !important;
+		 margin-top: -120%;
+		 opacity: 0;
+		 transition: all 0.8s;transform-origin: 50% 60%;
+	}
+
+	.container .tab .sub-tab:active:after {
+		padding: 0;
+		margin: 0;
+		opacity: 1;
+		transition: 0s;
+		transform-origin: 50% 60%; animation: none;
+        transform: scale(1.02);
+}
+	        .container .tab :hover {
+	        	background-color: #0099cc; animation: none;
+                transform: scale(1.02);
+	        } 
+			.container .tab .sub-tab .text {
+				height: 30px;    border-right: 1px solid white;
+			}  
+       /*  .container lists1,2,3,4 */
+            #lists1 ,#lists2, #lists3, #lists4{
+            	margin-top: 15px;
+            	border-collapse: collapse;
+            	width: 100%; box-shadow: 2px 2px 5px;
+            }
+
+            #lists1 td , #lists2 td , #lists3 td , #lists4 td {
+            	border: 1px solid #ddd;
+            	padding: 8px;
+            }
+             #lists1 th , #lists2 th,  #lists3 th , #lists4 th {
+            	border: 1px solid #ddd;
+            	padding: 8px
+            }
+         
+            tr:nth-child(even){background-color: #f2f2f2;}
+
+            tr:hover {background-color: #ddd;}
+
+            th {
+            	padding-top: 12px;
+            	padding-bottom: 12px;
+            	text-align: left;
+            	background-color: #808080;
+            	color: white;
+            }
+            .tabcontent {
+            	display: none;
+            
+            }
+        .container .khoibutton {
+        	
+        	display: grid;
+        	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        	padding-top: 10%;
+        }
+        .container .khoibutton .btn {
+        	float: left;
+        	text-align: center;
+        }
+button {
+    position: relative;
+    background-color: #d3d3d3;
+    border: none;
+    /* font-size: 28px; */
+    color: #000000;
+    padding: 3px;
+    width: 50px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 1px 1px 8px;
+    width: 90px;
+    height: 50px;
+    border: 1px;
+    border-radius: 5px;
+}
+
+button:after {
+    content: "";
+    background: #f1f1f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px !important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+
+button:active:after {
+    padding: 100px;
+    margin: 0;
+    opacity: 1;
+    transition: 0s;
+}
+
+  .active {border-bottom: 7px solid #0099cc;
+            	}
+        </style>
+    </head>
+    <body>
+    	<div class="container">
+    		<div class="tab">
+    			<div class="sub-tab  tablinks" onclick="openList(event, 'lists1')" >
+    				<div class="text "> <p>Tab 1</p>		
+    				</div>
+    			</div>
+    			<div class="sub-tab tablinks" onclick="openList(event, 'lists2')" >
+    				<div class="text"> <p>Tab 2</p>		
+    				</div>
+    			</div>
+    			<div class="sub-tab tablinks" onclick="openList(event, 'lists3')" >
+    				<div class="text"> <p>Tab 3</p>		
+    				</div>
+    			</div>
+    			<div class="sub-tab  tablinks" onclick="openList(event, 'lists4')" >
+    				<div class="text"> <p>Tab 4</p>		
+    				</div>
+    			</div>
+
+    		</div> 
+    		<!-- het tab -->
+    				<table id="lists1" class="tabcontent">
+    					<tr>
+    						<th>Analog devices 1</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Alert</th>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td>Analog 2</td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    				</table> <!--   het 1 table -->
+    					<table id="lists2" class="tabcontent">
+    					<tr>
+    						<th>Analog devices 2</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Alert</th>
+    					</tr>
+    					<tr>
+    						<td>Analog 1</td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td>Analog 2</td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    				</table> <!--   het 1 table -->
+
+    					<table id="lists3" class="tabcontent">
+    					<tr>
+    						<th>Analog devices 3</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Alert</th>
+    					</tr>
+    					<tr>
+    						<td>Analog 1</td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td>Analog 2</td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    				</table> 
+
+    				<table id="lists4" class="tabcontent">
+    					<tr>
+    						<th>Analog devices 4</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Ip set</th>
+    						<th>Alert</th>
+    					</tr>
+    					<tr>
+    						<td>Analog 1</td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td>Analog 2</td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    					<tr>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    						<td></td>
+    					</tr>
+    				</table><!--   het 1 table -->
+
+                    <div class="khoibutton " style="display: none;">
+                       <div class="btn"><button type="submit" name="add"><h3> Add</h3></button></div>
+                       <div class="btn"><button type="" name="delete"><h3>Remove</h3></button></div>
+                       <div class="btn"></div>
+                       <div class="btn"><button type="" name="open"><h3>Open</h3></button></div>
+                       <div class="btn"><button type="" name="save"><h3>Save</h3></button> </div> 	
+                       <div class="btn"><button type="" name="save as"><h3>Save as</h3></button></div>
+                   </div>
+
+    	 
+    	</div>
+
+
+    	<script>
+    		$(document).ready(function () {
+    			$('.sub-tab').click(function () {
+    				$('.sub-tab').find('.text').removeClass('active');
+    				$(this).find('.text').addClass('active');
+    				/* $('.sub-list').find('.right-sub').show();*/
+    				$('.khoibutton').show();
+    				/* $(this).css("color","blue");*/
+
+
+    			});
+    		})
+
+    		function openList(evt, listName) {  /*function tab contant list*/
+    			var i, tabcontent, tablinks;
+    			tabcontent = document.getElementsByClassName("tabcontent");
+    			for (i = 0; i < tabcontent.length; i++) {
+    				tabcontent[i].style.display = "none";
+
+    			}
+    			tablinks = document.getElementsByClassName("tablinks");
+    			for (i = 0; i < tablinks.length; i++) {
+    				tablinks[i].className = tablinks[i].className.replace(" active", "");
+                    console.log(listName);
+    			}
+    			document.getElementById(listName).style.display = "table";
+    			evt.currentTarget.className += " active";
+
+    		}
+    	</script>
+    	<script src="js/jquery-3.2.1.min.js"></script>
+    </body>
+    </html>
